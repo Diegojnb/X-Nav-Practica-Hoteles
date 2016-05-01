@@ -38,7 +38,6 @@ html,body{
     bottom: 0;
     width: var(--posicionmapa);
     height: 100%;
-
 }
 
 #mapa{
@@ -57,4 +56,22 @@ html,body{
     bottom: 0;
     right: 0;
     width: var(--posicionmapa);
+}
+
+#guardar{
+  position: absolute;
+
+  width: 5%;
+  height: 50%;
+  top: 0;
+  right: 0;
+}
+
+#cargar{
+  position: absolute;
+
+  width: 5%;
+  height: 50%;
+  right: 0;
+  bottom: 0;
 }
