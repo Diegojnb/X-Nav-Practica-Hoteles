@@ -1,0 +1,60 @@
+:root {
+  --main-bg-color: brown;
+  --secondary-bg-color: red;
+  --third-bg-color: blue;
+  --fourth-bg-color: white;
+  --tamanobanner:10%;
+  --posicionmapa:20%;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-bg-color);
+}
+
+#banner {
+    position: absolute;
+    background-color: var(--secondary-bg-color);
+    top: 0;
+    bottom: 0;
+    height: var(--tamanobanner);
+    width: 100%;
+}
+
+#principal {
+    background-color: var(--third-bg-color);
+    position: absolute;
+    top: var(--tamanobanner);
+    bottom: 0;
+    width: 100%;
+}
+
+#colecciones{
+    background-color: var(--main-bg-color);
+    position: absolute;
+    bottom: 0;
+    width: var(--posicionmapa);
+    height: 100%;
+
+}
+
+#mapa{
+    background-color: var(--fourth-bg-color);
+    position: absolute;
+    left: var(--posicionmapa);
+    bottom: 0;
+    width: 60%;
+    height: 100%;
+}
+
+#listahoteles{
+    background-color: var(--third-bg-color);
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    width: var(--posicionmapa);
+}
