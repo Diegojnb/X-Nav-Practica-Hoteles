@@ -1,10 +1,7 @@
 :root {
-  --main-bg-color: brown;
-  --secondary-bg-color: red;
-  --third-bg-color: blue;
-  --fourth-bg-color: white;
   --tamanobanner:10%;
   --posicionmapa:20%;
+  --botonesmapa:5%;
 }
 
 html,body{
@@ -12,20 +9,26 @@ html,body{
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--main-bg-color);
+  background-color: white;
 }
 
 #banner {
+    background-image: url("../images/tripadvisor.gif");
+    background-repeat: no-repeat;
+    background-size: 95% 100%;
+
     position: absolute;
-    background-color: var(--secondary-bg-color);
+    background-color: white;
     top: 0;
     bottom: 0;
     height: var(--tamanobanner);
     width: 100%;
+
+    border-style: solid;
+    border-color: green;
 }
 
 #principal {
-    background-color: var(--third-bg-color);
     position: absolute;
     top: var(--tamanobanner);
     bottom: 0;
@@ -33,30 +36,37 @@ html,body{
 }
 
 #colecciones{
-    background-color: var(--main-bg-color);
     position: absolute;
     bottom: 0;
     width: var(--posicionmapa);
     height: 100%;
+
+    overflow-y: scroll;
+    overflow-x:hidden;
 }
 
 #mapa{
-    background-color: var(--fourth-bg-color);
     position: absolute;
     left: var(--posicionmapa);
     bottom: 0;
     width: 60%;
     height: 100%;
+
+    border-style: solid;
+    border-color: black;
 }
 
 #listahoteles{
-    background-color: var(--third-bg-color);
     position: absolute;
     height: 100%;
     bottom: 0;
     right: 0;
     width: var(--posicionmapa);
-}
+
+    overflow-y: scroll;
+    overflow-x:hidden;
+    font-size: 200%;
+  }
 
 #guardar{
   position: absolute;
@@ -74,4 +84,49 @@ html,body{
   height: 50%;
   right: 0;
   bottom: 0;
+}
+
+#mapaG{
+  position: absolute;
+
+  width: 33%;
+  height: var(--botonesmapa);
+  top: 0;
+  left: 0;
+}
+
+#mapaC{
+  position: absolute;
+
+  width: 33%;
+  height: var(--botonesmapa);
+  left: 33%;
+  top: 0;
+}
+
+#infoH{
+  position: absolute;
+
+  width: 34%;
+  height: var(--botonesmapa);
+  right: 0;
+  top: 0;
+}
+
+#crearC{
+  position: absolute;
+
+  width: 50%;
+  height: 5%;
+  top: 0;
+  left: 0;
+}
+
+#borrarC{
+  position: absolute;
+
+  width: 50%;
+  height: 5%;
+  right: 0;
+  top: 0;
 }
