@@ -45,7 +45,7 @@ html,body{
     overflow-x:hidden;
 }
 
-#mapa{
+#containerMap{
     position: absolute;
     left: var(--posicionmapa);
     bottom: 0;
@@ -65,68 +65,69 @@ html,body{
 
     overflow-y: scroll;
     overflow-x:hidden;
-    font-size: 200%;
   }
 
-#guardar{
+#banner *{
   position: absolute;
 
   width: 5%;
   height: 50%;
-  top: 0;
   right: 0;
+}
+
+#guardar{
+  top: 0;
 }
 
 #cargar{
-  position: absolute;
-
-  width: 5%;
-  height: 50%;
-  right: 0;
   bottom: 0;
 }
 
-#mapaG{
+#cargarJ{
   position: absolute;
 
-  width: 33%;
+  width: 100%;
+  height: 5%;
+  top: 0;
+}
+
+#mapaG{
+
   height: var(--botonesmapa);
   top: 0;
   left: 0;
 }
 
-#mapaC{
-  position: absolute;
-
-  width: 33%;
-  height: var(--botonesmapa);
-  left: 33%;
-  top: 0;
-}
-
 #infoH{
-  position: absolute;
 
-  width: 34%;
   height: var(--botonesmapa);
   right: 0;
   top: 0;
 }
 
-#crearC{
+#colecciones *{
   position: absolute;
 
   width: 50%;
   height: 5%;
+}
+
+#crearC{
   top: 0;
   left: 0;
 }
 
 #borrarC{
-  position: absolute;
-
-  width: 50%;
-  height: 5%;
   right: 0;
   top: 0;
+}
+
+#expandir{
+  bottom: 0;
+  left: 0;
+}
+
+#comprimir{
+  right: 0;
+  bottom: 0;
 }

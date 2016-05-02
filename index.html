@@ -12,22 +12,32 @@
 	</head>
 	<body>
     <div id="banner">
-      <button id="guardar" type="button" onclick="alert('Hello world!')">Guardar</button>
-      <button id="cargar" type="button" onclick="alert('Hello world!')">Cargar</button>
+      <button id="guardar" type="button" >Guardar</button>
+      <button id="cargar" type="button" >Cargar</button>
     </div>
     <div id="principal">
       <div id="colecciones">
-        <button id="crearC" type="button" onclick="alert('Hello world!')">Crear coleeccion</button>
-        <button id="borrarC" type="button" onclick="alert('Hello world!')">Borrar coleccion</button>
+        <button id="crearC" type="button" >Crear coleccion</button>
+        <button id="borrarC" type="button" >Borrar coleccion</button>
 
+        <button id="expandir" type="button" >Expandir</button>
+        <button id="comprimir" type="button" >Comprimir</button>
       </div>
-      <div id="mapa">
-        <button id="mapaG" type="button" onclick="alert('Hello world!')">Mapa global</button>
-        <button id="mapaC" type="button" onclick="alert('Hello world!')">Mapa coleccion</button>
-        <button id="infoH" type="button" onclick="alert('Hello world!')">Info Hotel</button>
+
+      <div role="tabpanel" id="containerMap">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a id="homeTab" class="window" href="#mapa" aria-controls="mapa" role="tab" >Mapa global</a></li>
+          <li role="presentation"><a id="infoH" href="#info" class="window" aria-controls="#info" role="tab" >Info Hotel</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="mapa">Hola</div>
+          <div role="tabpanel" class="tab-pane" id="info">Adios</div>
+        </div>
       </div>
+
       <div id="listahoteles">
-
+        <button id="cargarJ" type="button" >Cargar hoteles</button>
       </div>
     </div>
 	</body>
