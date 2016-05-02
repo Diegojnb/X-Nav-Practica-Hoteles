@@ -4,25 +4,26 @@ $(document).ready(function(){
 	  $(this).tab('show')
 	})
 
-  $.getJSON( "json/alojamientos.json")
-	.done(function(data){
-		var inner = "";
-		timeline = data;
-		timeline.forEach(function(el,i){
-			nmensajes += i;
-			inner += "<div class ='container'><div class='row'><div class='col-md-3'>";
-				inner += "<img class='avatar' src='"+el.Avatar+"'></img></div>";
-				inner += "<div class='col-md-7'><p> Autor: "+el.Autor+"</p>";
-				inner += "<p> Titulo: "+el.Titulo+"</p></br>";
-				inner += "<p> Fecha: "+el.Fecha+"</p></div>";
-				inner += "<div class='col-md-2'></br><button type='button' data-toggle='collapse' data-target='#expandir"+nmensajes+"' class='btn btn-success'>";
-				inner += "Expandir</button></div></div><div class='row'>";
-				inner += "<div class='collapse' id='expandir"+nmensajes+"'><div class='well'>";
-				inner += "<p class='contenido'>"+el.Contenido+"<p></div></div></div>";
-			inner += "</div></div></div></br>";
+  $("#cargarJ").click(function() {
+    $.getJSON("json/alojamientos.json")
+    .done(function(data){
+      alojamientos = data.serviceList.service;
 
-		});
-		$("#home").html(inner)
-	});
+      $("#listahoteles").empty();
+      var inner = $("#listahoteles").html();
+
+      inner += "<div id='list'>";
+      var length = '<p>Hoteles encontrados: ' + alojamientos.length +'</p><ul>';
+
+      inner += length;
+      alojamientos.forEach(function(el,i){
+        inner += '<li numero=' + i + '>' + alojamientos[i].basicData.title + '</li>';
+      });
+      inner += "</ul></div>";
+      console.log(inner)
+      $("#listahoteles").html(inner)
+    });
+  });
+
 
 });
