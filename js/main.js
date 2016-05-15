@@ -1,57 +1,71 @@
 $(document).ready(function(){
 
 	/*popup = L.popup();*/
-	mymap = L.map('mapid').setView([40.2838, -3.8215], 13);
+	mymap = L.map('mapid').setView([40.419578500000, -3.698562600000], 13);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(mymap);
-/*
-	function onMapClick(e) {
-			    popup
-							.setLatLng(e.latlng)
-			        .setContent("You clicked the map at " + e.latlng.toString())
-			        .openOn(mymap);
-		}mymap.on('click', onMapClick);
 
-	function onLocationFound(e) {
-
-		var radius = e.accuracy / 2;
-		L.marker(e.latlng).addTo(mymap)
-			.bindPopup("You are within " + radius + " meters from this point").openPopup();
-		L.circle(e.latlng, radius).addTo(mymap);
-	}mymap.on('locationfound', onLocationFound);
-
-	function onLocationError(e) {
-		alert(e.message);
-	}
-
-	mymap.on('locationerror', onLocationError);
-	mymap.on('click', onMapClick);*/
-	mymap.locate({setView: true, maxZoom: 16});
+	/*mymap.locate({setView: true, maxZoom: 16});*/
 
 	$('.window').click(function (e) {
 	  $(this).tab('show')
 	})
 
   function show_accomodation(){
-    var accomodation = accomodations[$(this).attr('no')];
+    var accomodation = alojamientos[$(this).attr('numero')];
     var lat = accomodation.geoData.latitude;
     var lon = accomodation.geoData.longitude;
     var url = accomodation.basicData.web;
     var name = accomodation.basicData.name;
     var desc = accomodation.basicData.body;
-    var img = accomodation.multimedia.media[0].url;
+
+		console.log(lat);
+		console.log(lon);
+
+		var imgs = new Array();
+
+		accomodation.multimedia.media.forEach(function(el,index){
+			imgs[index] = accomodation.multimedia.media[index].url;
+		});
+		var carousel = "";
+		if (imgs.length > 0) {
+			carousel += '<div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">' +
+											'<ol class="carousel-indicators">';
+			imgs.forEach(function(el,index){
+				if (index == 0) {
+					carousel += '<li data-target="#myCarousel" data-slide-to="' + index + '" class="active"></li>';
+				}else{
+					carousel += '<li data-target="#myCarousel" data-slide-to="' + index + '"</li>';
+				}
+			});
+			carousel += '</ol><div class="carousel-inner">';
+			imgs.forEach(function(el,index){
+				if (index == 0) {
+					carousel += '<div class="item active"><img src="' + el +'"></div>';
+				}else{
+					carousel += '<div class="item"><img src="' + el +'"></div>';
+				}
+			});
+			carousel += '<a class="carousel-control left" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a><a class="carousel-control right" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>';
+		}
+
     var cat = accomodation.extradata.categorias.categoria.item[1]['#text'];
     var subcat = accomodation.extradata.categorias.categoria
      .subcategorias.subcategoria.item[1]['#text'];
-    L.marker([lat, lon]).addTo(map)
+
+    L.marker([lat, lon]).addTo(mymap)
   	 .bindPopup('<a href="' + url + '">' + name + '</a><br/>')
   	 .openPopup();
-    map.setView([lat, lon], 15);
-    $('#desc').html('<h2>' + name + '</h2>'
-     + '<p>Type: ' + cat + ', subtype: ' + subcat + '</p>'
-     + desc + '<img src="' + img + '"">');
+
+    mymap.setView([lat, lon], 15);
+
+		inner = "";
+		inner += "<h2>" + name + "</h2>" +  "<h3>" + cat + " - " +
+			subcat + "</h3>" + desc + carousel;
+
+		$("#info").html(inner);
   };
 
   $("#cargarJ").click(function() {
@@ -70,9 +84,8 @@ $(document).ready(function(){
         inner += '<li numero=' + i + '>' + alojamientos[i].basicData.title + '</li>';
       });
       inner += "</ul></div>";
-      console.log(inner)
       $("#listahoteles").html(inner)
+			$('li').click(show_accomodation);
     });
   });
-
 });

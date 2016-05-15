@@ -135,5 +135,9 @@ html,body{
 }
 
 #mapid{
-  height: 830px;
+  height: 765px;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
 }
