@@ -33,6 +33,7 @@ html,body{
     top: var(--tamanobanner);
     bottom: 0;
     width: 100%;
+    height: 90%;
 }
 
 #colecciones{
@@ -91,9 +92,10 @@ html,body{
   top: 0;
 }
 
-#mapaG{
+#mapa{
 
-  height: var(--botonesmapa);
+  /*height: var(--botonesmapa);*/
+  height: 100%;
   top: 0;
   left: 0;
 }
@@ -130,4 +132,8 @@ html,body{
 #comprimir{
   right: 0;
   bottom: 0;
+}
+
+#mapid{
+  height: 830px;
 }
