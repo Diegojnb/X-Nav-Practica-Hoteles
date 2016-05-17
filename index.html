@@ -3,11 +3,13 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
     <title>Hoteles</title>
@@ -19,13 +21,14 @@
     </div>
     <div id="principal">
       <div id="colecciones">
-        <button id="crearC" type="button" >Crear coleccion</button>
-        <button id="borrarC" type="button" >Borrar coleccion</button>
 
-        <button id="expandir" type="button" >Expandir</button>
-        <button id="comprimir" type="button" >Comprimir</button>
-      </div>
+				<button id="crearC" type="button" >Crear coleccion</button>
+				<button id="borrarC" type="button" >Borrar coleccion</button>
+				<div id="listacolecciones">
 
+      	</div>
+
+		</div>
       <div role="tabpanel" id="containerMap">
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a id="homeTab" class="window" href="#mapa" aria-controls="mapa" role="tab" >Mapa global</a></li>
