@@ -84,23 +84,7 @@ $(document).ready(function(){
 
 			$('.draggable').draggable({
 				revert: "invalid",
-				helper: "clone",
-				drag: function(){
-					console.log($(this).html());
-				}
-			});
-
-			$(".droppable" ).droppable({
-				activeClass: "ui-state-default",
-				hoverClass: "ui-state-hover",
-				drop: function( event, ui ) {
-					var hotel = alojamientos[ui.draggable.context.getAttribute('numero')].basicData.name
-					var str = $(this).html();
-					var len = str.length;
-					var res = str.substring(0,(len - 6));
-					res += "<a>" + hotel +"</a></div>"
-					$(this).html(res);
-				}
+				helper: "clone"
 			});
     });
   });
@@ -111,8 +95,21 @@ $(document).ready(function(){
 		var colection = prompt("Nombre de la coleccion", "Hoteles 4 estrellas");
 		if (colection != null) {
 				inner = $("#listacolecciones").html()
-				inner += '<div class="dropdown droppable"><button class="btn btn-secondary dropdown-toggle " data-toggle="dropdown">' +colection + '</button><div class="dropdown-menu" ></div></div>';
+				inner += '<div class="dropdown droppable ui-state-default ui-droppable"><button class="btn btn-secondary dropdown-toggle " data-toggle="dropdown">' +colection + '</button><div class="dropdown-menu" ></div></div>';
 				$("#listacolecciones").html(inner);
+
+				$(".droppable" ).droppable({
+					hoverClass: "ui-state-hover",
+					drop: function( event, ui ) {
+						var hotel = alojamientos[ui.draggable.context.getAttribute('numero')].basicData.name
+						var str = $(this).html();
+						var len = str.length;
+						var res = str.substring(0,(len - 6));
+						res += "<a>" + hotel +"</a></div>"
+						$(this).html(res);
+					}
+				});
+				
 		}else{
 			alert("Nombre no valido")
 		}
