@@ -115,6 +115,9 @@ html,body{
   top: 0;
 }
 
+#info{
+  overflow-y: scroll;
+}
 #colecciones *{
   position: relative;
   width: 100%;
