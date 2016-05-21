@@ -1,0 +1,1 @@
+{"colecciones":"\n\n      \t<div class=\"dropdown droppable ui-state-default ui-droppable open\"><button aria-expanded=\"true\" class=\"btn btn-secondary dropdown-toggle \" data-toggle=\"dropdown\">Hoteles 4 estrellas</button><div class=\"dropdown-menu\"><a>Vincci The Mint</a></div></div>","reservas":[]}
